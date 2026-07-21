@@ -537,7 +537,6 @@ margin-bottom:15px;
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-<?!= HtmlService.createHtmlOutputFromFile("style").getContent(); ?>
 
 </head>
 
@@ -877,7 +876,7 @@ loadBerita();
 });
 
 
-
+const API = "https://script.google.com/a/macros/uinmybatusangkar.ac.id/s/AKfycbxpsGytibaYnLfWxO5XtJC-70ppSmmZtRfbhnGdI7FYkvXB7doOpRHdjacstsc9Y9xP/exec";
 
 
 /**********************
@@ -885,97 +884,64 @@ LOAD MEDIA
 **********************/
 
 
-function loadMedia(){
+async function loadMedia() {
 
+    try {
 
-google.script.run
+        const response = await fetch(API + "?action=media");
+        const data = await response.json();
 
-.withSuccessHandler(function(data){
+        console.log("MEDIA :", data);
 
+        let html = "";
 
-console.log("MEDIA:",data);
+        if (!data || data.length === 0) {
 
+            html = "<p>Belum ada media tersedia.</p>";
 
+        } else {
 
-let html="";
+            data.forEach(item => {
 
+                html += `
+                    <div class="service-card">
 
+                        <h3>${item.judul}</h3>
 
-if(!data || data.length==0){
+                        <p>${item.deskripsi}</p>
 
+                        <span class="badge bg-primary">
+                            ${item.kategori}
+                        </span>
 
-html="<p>Belum ada media tersedia</p>";
+                        <br><br>
 
+                        <a href="${item.fileUrl}"
+                           target="_blank"
+                           class="btn btn-primary">
 
-}
+                            <i class="bi bi-box-arrow-up-right"></i>
+                            Buka Media
 
-else{
+                        </a>
 
+                    </div>
+                `;
 
-data.forEach(item=>{
+            });
 
+        }
 
-html += `
+        document.getElementById("mediaContainer").innerHTML = html;
 
+    } catch (err) {
 
-<div class="media-card">
+        console.error(err);
 
+        document.getElementById("mediaContainer").innerHTML =
+            "<p>Gagal mengambil data media.</p>";
 
-<h4>
-${item.judul}
-</h4>
-
-
-
-<p>
-${item.deskripsi}
-</p>
-
-
-
-<span>
-${item.kategori}
-</span>
-
-
-
-<br><br>
-
-
-
-<a href="${item.fileUrl}"
-target="_blank">
-
-Buka Media
-
-</a>
-
-
-
-</div>
-
-
-`;
-
-
-});
-
-
-}
-
-
-
-document
-.getElementById("mediaContainer")
-.innerHTML=html;
-
-
-
-})
-
-.getMedia();
-
-
+    }
 
 }
 
@@ -988,111 +954,67 @@ document
 LOAD BERITA
 **********************/
 
+async function loadBerita() {
 
+    try {
 
-/**********************
-LOAD BERITA
-**********************/
+        const response = await fetch(API + "?action=berita");
+        const data = await response.json();
 
-function loadBerita(){
+        console.log("BERITA :", data);
 
-google.script.run
+        let html = "";
 
-.withSuccessHandler(function(data){
+        if (!data || data.length === 0) {
 
-console.log("BERITA:",data);
+            html = "<p>Belum ada berita.</p>";
 
+        } else {
 
-let html="";
+            data.forEach(item => {
 
+                html += `
 
-if(!data || data.length==0){
+                <div class="berita-card">
 
-html="<p>Belum ada berita</p>";
+                    ${item.gambarUrl
+                        ? `<img src="${item.gambarUrl}"
+                               class="berita-img"
+                               alt="${item.judul}"
+                               onerror="this.style.display='none'">`
+                        : ""}
 
-}
+                    <div class="berita-content">
 
-else{
+                        <h4>${item.judul}</h4>
 
+                        <p>${item.ringkasan}</p>
 
-data.forEach(item=>{
+                        <small>
+                            <i class="bi bi-calendar-event"></i>
+                            ${item.tanggal}
+                        </small>
 
+                    </div>
 
-let gambar="";
+                </div>
 
+                `;
 
-if(item.gambarUrl){
+            });
 
+        }
 
-gambar=`
+        document.getElementById("beritaContainer").innerHTML = html;
 
-<img 
-src="${item.gambarUrl}"
-class="berita-img"
-alt="${item.judul}"
-onerror="this.src='https://via.placeholder.com/400x250?text=Gambar+Tidak+Tersedia'"
->
+    } catch (err) {
 
-`;
+        console.error(err);
 
-}
+        document.getElementById("beritaContainer").innerHTML =
+            "<p>Gagal mengambil berita.</p>";
 
-
-
-html += `
-
-
-<div class="berita-card">
-
-
-${gambar}
-
-
-<div class="berita-content">
-
-
-<h4>
-${item.judul}
-</h4>
-
-
-<p>
-${item.ringkasan}
-</p>
-
-
-<small>
-${item.tanggal}
-</small>
-
-
-</div>
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-}
-
-
-
-document
-.getElementById("beritaContainer")
-.innerHTML=html;
-
-
-
-})
-
-.getBerita();
-
+    }
 
 }
 
