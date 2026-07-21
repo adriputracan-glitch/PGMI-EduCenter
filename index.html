@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PGMI EduCenter</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<?!= HtmlService.createHtmlOutputFromFile("style").getContent(); ?>
+
+</head>
+
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+        <div class="logo-area">
+
+            <img src="https://i.imgur.com/O5Zksfk.png" class="logo">
+
+            <div>
+                <div class="logo-title">
+                    PGMI EduCenter
+                </div>
+
+                <div class="logo-sub">
+                    Portal Digital PGMI
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- MENU -->
+        <ul class="nav-menu">
+
+            <li>
+                <a href="#home">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0amVRwzfSipmKi2Ioh6zMm3sZ6pgW4yqj_giQocwovwACew/viewform"
+                   target="_blank">
+                    Validasi Modul
+                </a>
+            </li>
+
+            <li>
+                <a href="#media">
+                    Bank Media
+                </a>
+            </li>
+
+            <li>
+                <a href="#berita">
+                    Berita
+                </a>
+            </li>
+
+        </ul>
+
+
+
+        <!-- ADMIN BUTTON AREA -->
+        <div class="admin-area">
+
+
+            <a href="https://script.google.com/a/macros/uinmybatusangkar.ac.id/s/AKfycbxRxV4My0Z5Z7Nd1MJ2exRHCTRcl7ORwX5I3dWY_z252oXvcQaQ9HjOfwKqXxjRjYD3/exec"
+               target="_blank"
+               class="admin-btn">
+
+                <i class="bi bi-shield-lock"></i>
+                Admin Validator
+
+            </a>
+
+
+
+            <a href="https://script.google.com/a/macros/uinmybatusangkar.ac.id/s/AKfycbyfaehhFbJCKzLMDSzO8Gr8hfvLRvK_acToJEInCVjuwoBl5DrexAxe3lUNArjWSEKg/exec"
+               target="_blank"
+               class="admin-btn">
+
+                <i class="bi bi-cloud-upload"></i>
+                Upload Berita & Media
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</nav>
+
+
+
+<!-- ===================== HERO ===================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <img
+        src="https://i.imgur.com/O5Zksfk.png"
+        class="hero-logo">
+
+        <h1>
+            PGMI EduCenter
+        </h1>
+
+        <p class="hero-text">
+
+            Portal Digital Program Studi
+            Pendidikan Guru Madrasah Ibtidaiyah
+
+        </p>
+
+        <p class="hero-campus">
+
+            Fakultas Tarbiyah dan Ilmu Keguruan
+            <br>
+            UIN Mahmud Yunus Batusangkar
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0amVRwzfSipmKi2Ioh6zMm3sZ6pgW4yqj_giQocwovwACew/viewform"
+               target="_blank"
+               class="btn-primary-custom">
+
+                <i class="bi bi-journal-check"></i>
+                Validasi Modul
+
+            </a>
+
+            <a href="#media"
+               class="btn-secondary-custom">
+
+                <i class="bi bi-collection-play"></i>
+                Bank Media
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================== RUNNING TEXT ===================== -->
+
+<div class="marquee-container">
+
+    <div class="marquee">
+
+        📢 Selamat Datang di PGMI EduCenter —
+        Portal Digital Program Studi Pendidikan Guru Madrasah Ibtidaiyah —
+        Fakultas Tarbiyah dan Ilmu Keguruan —
+        UIN Mahmud Yunus Batusangkar
+
+    </div>
+
+</div>
+
+<!-- LAYANAN -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>Layanan Utama</h2>
+
+        <p>
+            Akses layanan digital PGMI
+        </p>
+
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+
+            <div class="icon-box">
+
+                <i class="bi bi-journal-check"></i>
+
+            </div>
+
+            <h3>Validasi Modul Ajar</h3>
+
+            <p>
+
+                Sistem review dan validasi
+                modul ajar.
+
+            </p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0amVRwzfSipmKi2Ioh6zMm3sZ6pgW4yqj_giQocwovwACew/viewform"
+   target="_blank"
+   rel="noopener noreferrer">
+
+                Buka Layanan
+
+            </a>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="icon-box">
+
+                <i class="bi bi-collection-play"></i>
+
+            </div>
+
+            <h3>Bank Media</h3>
+
+            <p>
+
+                Kumpulan media pembelajaran
+                digital PGMI.
+
+            </p>
+
+            <a href="#media">
+
+                Lihat Media
+
+            </a>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="icon-box">
+
+                <i class="bi bi-newspaper"></i>
+
+            </div>
+
+            <h3>Berita PGMI</h3>
+
+            <p>
+
+                Informasi dan kegiatan terbaru
+                Program Studi PGMI.
+
+            </p>
+
+            <a href="#berita">
+
+                Baca Berita
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- MEDIA -->
+
+<section id="media" class="section">
+
+    <div class="section-title">
+
+        <h2>Bank Media Pembelajaran</h2>
+
+        <p>Kumpulan media pembelajaran yang telah diunggah</p>
+
+    </div>
+
+    <div id="mediaContainer" class="media-grid">
+
+        Loading...
+
+    </div>
+
+</section>
+
+<!-- BERITA -->
+
+<!-- BERITA -->
+
+<section id="berita" class="section">
+
+    <div class="section-title">
+
+        <h2>Berita PGMI</h2>
+
+        <p>Informasi dan kegiatan terbaru Program Studi PGMI</p>
+
+    </div>
+
+    <div id="beritaContainer" class="berita-grid">
+
+        Loading...
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>PGMI EduCenter</h3>
+
+    <p>
+
+        Program Studi Pendidikan Guru Madrasah Ibtidaiyah
+
+    </p>
+
+    <p>
+
+        FTIK UIN Mahmud Yunus Batusangkar
+
+    </p>
+
+</footer>
+
+<script>
+
+
+document.addEventListener("DOMContentLoaded",function(){
+
+loadMedia();
+
+loadBerita();
+
+});
+
+
+
+
+
+/**********************
+LOAD MEDIA
+**********************/
+
+
+function loadMedia(){
+
+
+google.script.run
+
+.withSuccessHandler(function(data){
+
+
+console.log("MEDIA:",data);
+
+
+
+let html="";
+
+
+
+if(!data || data.length==0){
+
+
+html="<p>Belum ada media tersedia</p>";
+
+
+}
+
+else{
+
+
+data.forEach(item=>{
+
+
+html += `
+
+
+<div class="media-card">
+
+
+<h4>
+${item.judul}
+</h4>
+
+
+
+<p>
+${item.deskripsi}
+</p>
+
+
+
+<span>
+${item.kategori}
+</span>
+
+
+
+<br><br>
+
+
+
+<a href="${item.fileUrl}"
+target="_blank">
+
+Buka Media
+
+</a>
+
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+document
+.getElementById("mediaContainer")
+.innerHTML=html;
+
+
+
+})
+
+.getMedia();
+
+
+
+}
+
+
+
+
+
+
+/**********************
+LOAD BERITA
+**********************/
+
+
+
+/**********************
+LOAD BERITA
+**********************/
+
+function loadBerita(){
+
+google.script.run
+
+.withSuccessHandler(function(data){
+
+console.log("BERITA:",data);
+
+
+let html="";
+
+
+if(!data || data.length==0){
+
+html="<p>Belum ada berita</p>";
+
+}
+
+else{
+
+
+data.forEach(item=>{
+
+
+let gambar="";
+
+
+if(item.gambarUrl){
+
+
+gambar=`
+
+<img 
+src="${item.gambarUrl}"
+class="berita-img"
+alt="${item.judul}"
+onerror="this.src='https://via.placeholder.com/400x250?text=Gambar+Tidak+Tersedia'"
+>
+
+`;
+
+}
+
+
+
+html += `
+
+
+<div class="berita-card">
+
+
+${gambar}
+
+
+<div class="berita-content">
+
+
+<h4>
+${item.judul}
+</h4>
+
+
+<p>
+${item.ringkasan}
+</p>
+
+
+<small>
+${item.tanggal}
+</small>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+}
+
+
+
+document
+.getElementById("beritaContainer")
+.innerHTML=html;
+
+
+
+})
+
+.getBerita();
+
+
+}
+
+
+
+</script>
+
+</body>
+</html>
