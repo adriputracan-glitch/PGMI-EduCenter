@@ -2,5 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap:
-https://username.github.io/PGMI-EduCenter/sitemap.xml
+Sitemap: https://pgmi-edu-center.vercel.app/sitemap.xml
