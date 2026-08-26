@@ -107,11 +107,10 @@ body{
 
 
 /* =====================================================
-   NAVBAR
+   NAVBAR — PREMIUM GOLD
 ===================================================== */
 
 .navbar{
-
     position:fixed;
 
     top:0;
@@ -121,20 +120,21 @@ body{
 
     z-index:999;
 
-background:
-linear-gradient(
-    110deg,
-    rgba(7,29,73,.98) 0%,
-    rgba(11,45,92,.96) 65%,
-    rgba(212,175,55,.18) 100%
-);
-
-    backdrop-filter:blur(14px);
+    background:
+        linear-gradient(
+            110deg,
+            #E8B923 0%,
+            #F6C936 25%,
+            #FFD84D 50%,
+            #F6C936 75%,
+            #E5B522 100%
+        );
 
     box-shadow:
+        0 5px 25px rgba(7,29,73,.22);
 
-    0 5px 25px rgba(0,0,0,.22);
-
+    border-bottom:
+        1px solid rgba(255,255,255,.45);
 }
 
 
@@ -174,22 +174,15 @@ linear-gradient(
 
 
 .logo-title{
-
     font-size:22px;
-
     font-weight:700;
-
-    color:var(--white);
-
+    color:var(--primary);
 }
 
 
 .logo-sub{
-
     font-size:12px;
-
-    color:rgba(255,255,255,.72);
-
+    color:rgba(7,29,73,.72);
 }
 
 
@@ -209,38 +202,34 @@ linear-gradient(
 
 
 .nav-menu a{
-
     position:relative;
 
     text-decoration:none;
 
-    color:rgba(255,255,255,.92);
+    color:#071D49;
 
-    font-weight:500;
+    font-weight:600;
 
     transition:.3s;
-
 }
 
 
 .nav-menu a::after{
-
     content:"";
 
     position:absolute;
 
     left:0;
-
     bottom:-8px;
 
     width:0;
+    height:3px;
 
-    height:2px;
+    background:#071D49;
 
-    background:var(--accent-light);
+    border-radius:10px;
 
     transition:.3s;
-
 }
 
 
@@ -251,10 +240,12 @@ linear-gradient(
 }
 
 
+.nav-menu a:hover{
+    color:#ffffff;
+}
+
 .nav-menu a:hover::after{
-
     width:100%;
-
 }
 
 
@@ -274,7 +265,6 @@ linear-gradient(
 
 
 .admin-btn{
-
     display:flex;
 
     align-items:center;
@@ -282,20 +272,19 @@ linear-gradient(
     gap:8px;
 
     background:
+        linear-gradient(
+            135deg,
+            #174A91,
+            #071D49
+        );
 
-    linear-gradient(
-        135deg,
-        #174A91,
-        #0B2D5C
-    );
-
-    color:white;
+    color:#ffffff;
 
     padding:10px 16px;
 
     border-radius:12px;
 
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
 
     text-decoration:none;
 
@@ -307,29 +296,47 @@ linear-gradient(
 
     transition:.3s;
 
+    box-shadow:
+        0 4px 12px rgba(7,29,73,.20);
 }
 
 
 .admin-btn:hover{
-
     background:
+        linear-gradient(
+            135deg,
+            #071D49,
+            #174A91
+        );
 
-    linear-gradient(
-        135deg,
-        var(--accent),
-        var(--accent-light)
-    );
-
-    color:var(--primary);
+    color:#FFD84D;
 
     transform:translateY(-3px);
 
     box-shadow:
-
-    0 8px 20px rgba(0,0,0,.25);
-
+        0 8px 20px rgba(7,29,73,.30);
 }
 
+    .navbar::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #071D49 0%,
+            #174A91 35%,
+            #D4AF37 60%,
+            #071D49 100%
+        );
+}
 
 /* =====================================================
    HERO
