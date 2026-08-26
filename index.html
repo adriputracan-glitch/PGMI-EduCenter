@@ -55,20 +55,21 @@ href="https://i.imgur.com/O5Zksfk.png">
 ===================================================== */
 
 :root{
-
     --primary:#071D49;
-    --primary-light:#0B2D5C;
-    --secondary:#123F7A;
+    --primary-light:#123F7A;
+    --secondary:#1B4F91;
 
     --accent:#D4AF37;
     --accent-light:#F5D77A;
+
+    --gold-soft:#E8C95A;
+    --gold-dark:#B89020;
 
     --white:#ffffff;
     --dark:#172033;
     --text:#4B5563;
 
     --background:#F6F8FC;
-
 }
 
 
@@ -120,13 +121,13 @@ body{
 
     z-index:999;
 
-    background:
-
-    linear-gradient(
-        135deg,
-        rgba(7,29,73,.97),
-        rgba(11,45,92,.94)
-    );
+background:
+linear-gradient(
+    110deg,
+    rgba(7,29,73,.98) 0%,
+    rgba(11,45,92,.96) 65%,
+    rgba(212,175,55,.18) 100%
+);
 
     backdrop-filter:blur(14px);
 
@@ -335,64 +336,48 @@ body{
 ===================================================== */
 
 .hero{
-
     min-height:100vh;
 
     background:
-
-    linear-gradient(
-
-        110deg,
-
-        rgba(7,29,73,.96),
-
-        rgba(11,45,92,.82),
-
-        rgba(18,63,122,.55)
-
-    ),
-
-    url("https://i.imgur.com/6JamZoo.jpeg");
+        linear-gradient(
+            110deg,
+            rgba(7,29,73,.97) 0%,
+            rgba(11,45,92,.88) 45%,
+            rgba(18,63,122,.65) 70%,
+            rgba(212,175,55,.28) 100%
+        ),
+        url("https://i.imgur.com/6JamZoo.jpeg");
 
     background-size:cover;
-
     background-position:center;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     position:relative;
-
 }
 
 
 /* efek cahaya lembut */
 
 .hero::after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
 
     background:
-
-    radial-gradient(
-
-        circle at 75% 45%,
-
-        rgba(212,175,55,.12),
-
-        transparent 35%
-
-    );
+        radial-gradient(
+            circle at 78% 45%,
+            rgba(212,175,55,.22),
+            transparent 32%
+        ),
+        linear-gradient(
+            90deg,
+            transparent 60%,
+            rgba(212,175,55,.08)
+        );
 
     pointer-events:none;
-
 }
 
 
@@ -574,31 +559,20 @@ body{
 ===================================================== */
 
 .marquee-container{
-
     background:
-
-    linear-gradient(
-
-        90deg,
-
-        var(--primary),
-
-        var(--primary-light),
-
-        var(--primary)
-
-    );
+        linear-gradient(
+            90deg,
+            var(--primary) 0%,
+            var(--primary-light) 55%,
+            #8C711E 100%
+        );
 
     color:white;
-
     overflow:hidden;
-
     padding:12px;
 
     border-top:1px solid rgba(255,255,255,.1);
-
     border-bottom:1px solid rgba(255,255,255,.1);
-
 }
 
 
@@ -735,34 +709,25 @@ body{
 
     margin:auto;
 
+
     background:
-
-    linear-gradient(
-
-        135deg,
-
-        var(--primary),
-
-        var(--secondary)
-
-    );
+        linear-gradient(
+            135deg,
+            var(--primary) 0%,
+            var(--secondary) 65%,
+            var(--gold-dark) 100%
+        );
 
     border-radius:50%;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     font-size:40px;
-
     color:var(--accent-light);
 
     margin-bottom:20px;
-
 }
-
 
 .service-card a{
 
