@@ -984,7 +984,236 @@ body{
     box-shadow:
         0 20px 45px rgba(7,29,73,.22);
 }
-    
+
+
+/* =====================================================
+   MEDIA PDF
+===================================================== */
+
+.media-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+
+.media-pdf-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(7,29,73,.08);
+
+    box-shadow:
+        0 10px 30px rgba(7,29,73,.08);
+
+    transition:.3s ease;
+
+}
+
+
+.media-pdf-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(7,29,73,.16);
+
+}
+
+
+/* COVER PDF */
+
+.pdf-cover{
+
+    position:relative;
+
+    width:100%;
+
+    height:380px;
+
+    background:#eef2f7;
+
+    overflow:hidden;
+
+}
+
+
+.pdf-cover iframe{
+
+    width:100%;
+
+    height:100%;
+
+    border:none;
+
+    pointer-events:none;
+
+}
+
+
+/* LAPISAN AGAR COVER TIDAK BISA DI-SCROLL */
+
+.pdf-cover-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    cursor:pointer;
+
+}
+
+
+/* ICON PDF */
+
+.pdf-icon{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    background:#071D49;
+
+    color:#FFD84D;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.25);
+
+    z-index:2;
+
+}
+
+
+/* CONTENT */
+
+.media-pdf-content{
+
+    padding:22px;
+
+}
+
+
+.media-pdf-content h3{
+
+    color:var(--primary);
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+
+.media-pdf-content p{
+
+    color:var(--text);
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:12px;
+
+}
+
+
+/* KATEGORI */
+
+.media-category{
+
+    display:inline-block;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    margin-bottom:15px;
+
+}
+
+
+/* BUTTON */
+
+.media-pdf-btn{
+
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:#fff;
+
+    padding:12px 18px;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.media-pdf-btn:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-light)
+        );
+
+    color:var(--primary);
+
+}
 /* =====================================================
    BERITA
 ===================================================== */
@@ -1575,12 +1804,19 @@ LOAD MEDIA
 **********************/
 
 
+/**********************
+LOAD MEDIA PDF
+**********************/
+
 async function loadMedia() {
 
     try {
 
-        const response = await fetch(API + "?action=media");
-        const data = await response.json();
+        const response =
+            await fetch(API + "?action=media");
+
+        const data =
+            await response.json();
 
         console.log("MEDIA :", data);
 
@@ -1588,59 +1824,191 @@ async function loadMedia() {
 
         if (!data || data.length === 0) {
 
-            html = "<p>Belum ada media tersedia.</p>";
+            html = `
+                <div class="placeholder-box">
+
+                    <i class="bi bi-file-earmark-pdf"
+                       style="font-size:50px;color:#071D49;">
+                    </i>
+
+                    <h3>Belum Ada Media</h3>
+
+                    <p>
+                        Belum ada media pembelajaran
+                        yang tersedia.
+                    </p>
+
+                </div>
+            `;
 
         } else {
 
             data.forEach(item => {
 
+                /*
+                 * URL PDF dari Google Drive
+                 */
+                const fileUrl =
+                    String(item.fileUrl || "").trim();
+
+
+                /*
+                 * Ambil FILE ID dari URL Google Drive
+                 */
+                let fileId = "";
+
+                const match =
+                    fileUrl.match(/[-\w]{25,}/);
+
+                if (match) {
+
+                    fileId = match[0];
+
+                }
+
+
+                /*
+                 * Google Drive Preview
+                 */
+                const previewUrl =
+                    fileId
+                    ? "https://drive.google.com/file/d/"
+                      + fileId
+                      + "/preview"
+                    : fileUrl;
+
+
                 html += `
-                    <div class="service-card">
 
-                        <h3>${item.judul}</h3>
+                    <div class="media-pdf-card">
 
-                        <p>${item.deskripsi}</p>
 
-                        <span class="badge bg-primary">
-                            ${item.kategori}
-                        </span>
+                        <!-- COVER PDF -->
 
-                        <br><br>
+                        <div class="pdf-cover">
 
-                        <a href="${item.fileUrl}"
-                           target="_blank"
-                           class="btn btn-primary">
+                            <div class="pdf-icon">
 
-                            <i class="bi bi-box-arrow-up-right"></i>
-                            Buka Media
+                                <i class="bi bi-file-earmark-pdf-fill"></i>
 
-                        </a>
+                            </div>
+
+
+                            <iframe
+                                src="${previewUrl}"
+                                loading="lazy">
+                            </iframe>
+
+
+                            <!-- Overlay -->
+
+                            <a
+                                href="${fileUrl}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="pdf-cover-overlay"
+                                aria-label="Buka PDF">
+                            </a>
+
+                        </div>
+
+
+                        <!-- CONTENT -->
+
+                        <div class="media-pdf-content">
+
+
+                            <h3>
+                                ${item.judul || "Media Pembelajaran"}
+                            </h3>
+
+
+                            <p>
+
+                                ${item.deskripsi || ""}
+
+                            </p>
+
+
+                            ${
+                                item.kategori
+                                ?
+                                `
+                                <span class="media-category">
+
+                                    <i class="bi bi-tag"></i>
+
+                                    ${item.kategori}
+
+                                </span>
+                                `
+                                :
+                                ""
+                            }
+
+
+                            <a
+                                href="${fileUrl}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="media-pdf-btn">
+
+                                <i class="bi bi-book"></i>
+
+                                Baca PDF
+
+                            </a>
+
+
+                        </div>
 
                     </div>
+
                 `;
 
             });
 
         }
 
-        document.getElementById("mediaContainer").innerHTML = html;
+
+        document.getElementById(
+            "mediaContainer"
+        ).innerHTML = html;
+
 
     } catch (err) {
 
-        console.error(err);
+        console.error(
+            "Gagal mengambil media:",
+            err
+        );
 
-        document.getElementById("mediaContainer").innerHTML =
-            "<p>Gagal mengambil data media.</p>";
+
+        document.getElementById(
+            "mediaContainer"
+        ).innerHTML = `
+
+            <div class="placeholder-box">
+
+                <i class="bi bi-exclamation-triangle"
+                   style="font-size:45px;color:#B89020;">
+                </i>
+
+                <h3>
+                    Gagal Mengambil Data Media
+                </h3>
+
+                <p>
+                    Silakan coba lagi beberapa saat.
+                </p>
+
+            </div>
+
+        `;
 
     }
 
 }
-
-
-
-
-
-
 /**********************
 LOAD BERITA
 **********************/
