@@ -1393,6 +1393,196 @@ footer h3{
 
 }
 
+    
+/* =========================================
+   MODERN PROFILE - MENGENAL PGMI EDUCENTER
+========================================= */
+
+#profil-pgmi {
+    max-width: 100%;
+    padding: 90px 20px;
+    background:
+        radial-gradient(circle at top left, rgba(212,175,55,.12), transparent 35%),
+        linear-gradient(135deg, #F2F6FC, #E8EFF9);
+}
+
+#profil-pgmi .section-title {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+}
+
+#profil-pgmi .section-title h2 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #071D49;
+    letter-spacing: -.8px;
+}
+
+#profil-pgmi .section-title p {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #64748B;
+}
+
+/* Kartu utama */
+
+#profil-pgmi .about-card {
+    position: relative;
+    max-width: 1100px;
+    padding: 55px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(145deg, #FFFFFF 0%, #F7FAFF 100%);
+
+    border: 1px solid rgba(212,175,55,.35);
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(7,29,73,.10),
+        0 5px 15px rgba(7,29,73,.04);
+}
+
+/* Aksen emas di bagian atas */
+
+#profil-pgmi .about-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+
+    background: linear-gradient(
+        90deg,
+        #071D49,
+        #174A91,
+        #D4AF37,
+        #F5D77A
+    );
+}
+
+/* Dekorasi cahaya */
+
+#profil-pgmi .about-card::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -100px;
+    bottom: -110px;
+
+    background: radial-gradient(
+        circle,
+        rgba(212,175,55,.15),
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+#profil-pgmi .about-card h2 {
+    color: #071D49;
+    text-align: left;
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+#profil-pgmi .about-card p {
+    color: #526078;
+    font-size: 16px;
+    line-height: 1.9;
+    text-align: justify;
+    margin-bottom: 18px;
+}
+
+/* Subjudul layanan */
+
+#profil-pgmi .about-card h3 {
+    position: relative;
+    color: #071D49;
+    font-size: 21px;
+    font-weight: 700;
+
+    margin-top: 32px;
+    margin-bottom: 14px;
+    padding: 12px 16px 12px 20px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(212,175,55,.18),
+        rgba(212,175,55,.03)
+    );
+
+    border-left: 5px solid #D4AF37;
+    border-radius: 0 12px 12px 0;
+}
+
+/* Link */
+
+#profil-pgmi .about-card a {
+    display: inline-block;
+    color: #174A91;
+    font-weight: 700;
+    text-decoration: none;
+
+    padding: 9px 15px;
+    margin-top: 3px;
+
+    background: #EDF3FC;
+    border: 1px solid #D8E4F5;
+    border-radius: 10px;
+
+    transition: .3s ease;
+}
+
+#profil-pgmi .about-card a:hover {
+    color: #071D49;
+    background: linear-gradient(
+        135deg,
+        #F5D77A,
+        #D4AF37
+    );
+
+    border-color: #D4AF37;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(7,29,73,.12);
+}
+
+/* Tampilan HP */
+
+@media(max-width:768px) {
+
+    #profil-pgmi {
+        padding: 60px 15px;
+    }
+
+    #profil-pgmi .section-title h2 {
+        font-size: 28px;
+    }
+
+    #profil-pgmi .about-card {
+        padding: 35px 22px;
+        border-radius: 20px;
+    }
+
+    #profil-pgmi .about-card h2 {
+        font-size: 27px;
+    }
+
+    #profil-pgmi .about-card h3 {
+        font-size: 18px;
+    }
+
+    #profil-pgmi .about-card p {
+        font-size: 15px;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+}
+
 </style>
     
 
