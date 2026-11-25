@@ -1,5 +1,4 @@
 User-agent: *
-
 Allow: /
 
-Sitemap: https://pgmi-edu-center.vercel.app/sitemap.xml
+Sitemap: https://adriputracan-glitch.github.io/PGMI-EduCenter/sitemap.xml
